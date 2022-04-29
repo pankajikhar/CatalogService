@@ -10,8 +10,8 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 WORKDIR /src
-COPY ["CatalogService/Catalog.csproj", "CatalogService/"]
-RUN dotnet restore "CatalogService/Catalog.csproj"
+COPY ["Catalog.csproj", "CatalogService/"]
+RUN dotnet restore "Catalog.csproj"
 COPY . .
 WORKDIR "/src/CatalogService"
 RUN dotnet build "Catalog.csproj" -c Release -o /app/build
